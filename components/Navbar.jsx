@@ -7,14 +7,8 @@ import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
 
+import ButtonLink from "./ButtonLink";
 import SearchBar from "./SearchBar"; // your toggleable search button/input (desktop)
 
 export default function Navbar() {
@@ -25,43 +19,20 @@ export default function Navbar() {
   useEffect(() => setMounted(true), []);
 
   return (
-    <nav className="bg-background/80 sticky top-0 z-50 backdrop-blur">
-      <div className="mx-auto grid max-w-4xl grid-cols-3 items-center px-4 py-3">
+    <nav className="sticky top-0 z-50 bg-transparent pt-5 backdrop-blur">
+      <div className="mx-auto grid max-w-5xl grid-cols-3 items-center px-4 py-3">
         {/* Branding */}
         <Link href="/" className="text-base font-bold sm:text-lg">
-          Shrish{" "}
-          <span className="text-muted-foreground">| My Thought Pages</span>
+          Shrish <span className="text-primary">| My Thought Pages</span>
         </Link>
 
         {/* Desktop: menu + search + theme */}
         <div className="hidden items-center justify-center gap-4 md:flex">
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuLink asChild>
-                  <Link href="/" className={navigationMenuTriggerStyle()}>
-                    Home
-                  </Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
+          <ButtonLink href="/">Home</ButtonLink>
 
-              <NavigationMenuItem>
-                <NavigationMenuLink asChild>
-                  <Link href="/blog" className={navigationMenuTriggerStyle()}>
-                    Blog
-                  </Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
+          <ButtonLink href="/blog">Blog</ButtonLink>
 
-              <NavigationMenuItem>
-                <NavigationMenuLink asChild>
-                  <Link href="/about" className={navigationMenuTriggerStyle()}>
-                    About
-                  </Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+          <ButtonLink href="/about">About</ButtonLink>
         </div>
 
         <div className="hidden items-center justify-end gap-4 md:flex">
