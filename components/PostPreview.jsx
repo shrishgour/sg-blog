@@ -5,12 +5,18 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 import { MoveRight } from "lucide-react";
 import Link from "next/link";
 
-export default function PostPreview({ post }) {
+export default function PostPreview({ post, flat = false }) {
   return (
-    <Card className="group/gp">
+    <Card
+      className={cn(
+        "group/gp h-full transition-all",
+        flat && "border-none bg-transparent shadow-none",
+      )}
+    >
       {/* Title */}
       <CardHeader className="p-4">
         <CardTitle className="cursor-pointer text-xl leading-snug font-bold hover:underline hover:decoration-2 hover:underline-offset-2">
@@ -31,7 +37,7 @@ export default function PostPreview({ post }) {
       {/* Read More Link */}
       <CardFooter className="px-4 pb-4">
         <Link
-          href={`/${post.slug}`}
+          href={`/${post.category}/${post.slug}`}
           className="group/p inline-flex items-center text-base font-semibold"
         >
           <span>Read more</span>

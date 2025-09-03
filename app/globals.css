@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -48,7 +49,7 @@
       top: 0;
     }
     50% {
-      top: -500px;
+      top: -200px;
     }
     100% {
       top: 0;
@@ -149,5 +150,17 @@
   code,
   pre {
     font-family: var(--font-mono);
+  }
+}
+
+@layer utilities {
+  /* keeps scrolling but hides the scrollbar (good cross-browser) */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and old Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    width: 0;
+    height: 0;
   }
 }

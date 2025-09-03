@@ -31,9 +31,9 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${ibmPlexSans.variable} ${inter.variable} ${ibmPlexMono.variable} antialiased`}
+      className={`${ibmPlexSans.variable} ${inter.variable} ${ibmPlexMono.variable} no-scrollbar antialiased`}
     >
-      <body className="antialiased">
+      <body className="no-scrollbar">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Navbar />
           {children}
