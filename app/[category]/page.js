@@ -4,7 +4,6 @@ import { getPostsByCategory } from "@/lib/blogUtils";
 async function page({ params }) {
   const para = await params;
   const posts = await getPostsByCategory(para.category);
-  console.log(posts);
   const categoryName = posts[0]?.category.category;
 
   return (

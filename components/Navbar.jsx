@@ -20,7 +20,7 @@ export default function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 bg-transparent pt-5 backdrop-blur">
-      <div className="mx-auto grid max-w-5xl grid-cols-3 items-center px-4 py-3">
+      <div className="mx-auto grid max-w-5xl grid-cols-[1fr_2fr_1fr] items-center px-4 py-3">
         {/* Branding */}
         <Link href="/" className="text-base font-bold sm:text-lg">
           Shrish <span className="text-primary">| My Thought Pages</span>
@@ -28,9 +28,11 @@ export default function Navbar() {
 
         {/* Desktop: menu + search + theme */}
         <div className="hidden items-center justify-center gap-4 md:flex">
-          <ButtonLink href="/">Home</ButtonLink>
+          {/* <ButtonLink href="/">Home</ButtonLink> */}
 
-          <ButtonLink href="/blog">Blog</ButtonLink>
+          <ButtonLink href="/blog">Category</ButtonLink>
+
+          <ButtonLink href="/mywork">My Work</ButtonLink>
 
           <ButtonLink href="/about">About</ButtonLink>
         </div>

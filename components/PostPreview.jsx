@@ -20,7 +20,9 @@ export default function PostPreview({ post, flat = false }) {
       {/* Title */}
       <CardHeader className="p-4">
         <CardTitle className="cursor-pointer text-xl leading-snug font-bold hover:underline hover:decoration-2 hover:underline-offset-2">
-          {post.title}
+          <Link href={`/${post.category}/${post.slug}`}>
+            <span>{post.title}</span>
+          </Link>
         </CardTitle>
         {post.subtitle && (
           <p className="text-muted-foreground text-lg font-medium">

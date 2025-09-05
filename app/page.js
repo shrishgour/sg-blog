@@ -17,7 +17,7 @@ export default async function Home() {
       <div className="mx-auto grid max-w-5xl grid-cols-1 gap-x-24 md:grid-cols-[2fr_1fr]">
         <section className="-mt-10">
           <h3 className="text-secondary-foreground mx-4 mb-4 text-base font-semibold tracking-[0.125rem] uppercase">
-            Articles and Tutorials
+            Articles and Thoughts
           </h3>
 
           <div className="flex flex-col">
@@ -30,7 +30,7 @@ export default async function Home() {
         </section>
 
         <aside>
-          <div className="mt-20 flex h-full flex-col gap-16">
+          <div className="flex h-full flex-col gap-16 py-20">
             <section>
               <h3 className="text-secondary-foreground mx-4 mb-10 text-base font-semibold tracking-[0.125rem] uppercase">
                 Browes by category

@@ -1,23 +1,14 @@
 import Hero from "@/components/Hero";
+import BlogContent from "@/components/PostContent";
 import { getPostBySlug } from "@/lib/blogUtils";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-
-function formatDate(dateString) {
-  const date = new Date(dateString);
-  return new Intl.DateTimeFormat("en-US", {
-    weekday: "long", // "Monday"
-    year: "numeric", // "2025"
-    month: "long", // "September"
-    day: "numeric", // "3"
-  }).format(date);
-}
+import { formatDateServer } from "@/lib/formatDate";
 
 export default async function Page({ params }) {
   const { slug } = await params;
   const post = await getPostBySlug(slug);
 
   return (
-    <article className="prose prose-lg prose-slate dark:prose-invert max-w-none">
+    <article className="max-w-none">
       <Hero
         heading={post.title}
         subHeading={
@@ -28,13 +19,13 @@ export default async function Page({ params }) {
             </span>{" "}
             on{" "}
             <span className="text-accent-foreground font-medium">
-              {formatDate(post.publishedDate)}
+              {formatDateServer(post.publishedDate)}
             </span>
           </>
         }
       />
-      <div className="mx-auto grid max-w-5xl grid-cols-1 gap-x-24 md:grid-cols-[2fr_1fr]">
-        <div className="mx-2">{documentToReactComponents(post.content)}</div>
+      <div className="prose prose-lg prose-slate dark:prose-invert mx-auto grid max-w-5xl grid-cols-1 gap-x-24 md:grid-cols-[2fr_1fr]">
+        <BlogContent content={post.content} />
       </div>
     </article>
   );
