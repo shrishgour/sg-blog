@@ -2,6 +2,7 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { IBM_Plex_Mono, IBM_Plex_Sans, Inter } from "next/font/google";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 const ibmPlexSans = IBM_Plex_Sans({
@@ -38,6 +39,7 @@ export default function RootLayout({ children }) {
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Navbar />
           {children}
+          <Toaster richColors position="bottom-center" />
           <Footer />
         </ThemeProvider>
       </body>

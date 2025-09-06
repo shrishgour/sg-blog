@@ -4,8 +4,18 @@ import PopularPostList from "@/components/PopularPostList";
 import PostPreview from "@/components/PostPreview";
 import { getPosts } from "@/lib/blogUtils";
 
-export default async function Home() {
+export default async function Home({ searchParams }) {
   const posts = await getPosts();
+  const q = searchParams.q || "";
+
+  const filtered = q
+    ? posts.filter(
+        (p) =>
+          p.title.toLowerCase().includes(q) ||
+          p.excerpt.toLowerCase().includes(q) ||
+          p.category?.fields?.category?.toLowerCase().includes(q),
+      )
+    : posts;
 
   return (
     <main>
@@ -21,7 +31,7 @@ export default async function Home() {
           </h3>
 
           <div className="flex flex-col">
-            {posts.map((post) => (
+            {filtered.map((post) => (
               <article key={post.id}>
                 <PostPreview post={post} flat />
               </article>

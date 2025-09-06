@@ -23,7 +23,7 @@ function Hero({ heading, subHeading, showImage = false }) {
       )}
       <div className="to-background absolute inset-0 -z-10 bg-gradient-to-b from-70% via-transparent/80"></div>
 
-      <div className="from-primary/90 via-muted-foreground/50 to-background absolute inset-0 -z-20 -mt-25 animate-[scrollGradient_5.5s_linear_infinite] bg-gradient-to-b bg-[length:100%_100%]" />
+      <div className="from-primary/90 via-muted-foreground/50 to-background absolute inset-0 -z-20 -mt-100 animate-[scrollGradient_5.5s_linear_infinite] bg-gradient-to-b bg-[length:100%_100%] sm:-mt-25" />
     </section>
   );
 }
