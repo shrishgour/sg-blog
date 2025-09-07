@@ -3,35 +3,29 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search, X } from "lucide-react";
-import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 
 export default function SearchBar() {
   const [open, setOpen] = useState(false);
-  const [inputValue, setInputValue] = useState(""); // local state for fast typing
+  const [inputValue, setInputValue] = useState("");
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const q = searchParams.get("q") || "";
+  const debounceRef = useRef();
 
-  // Sync input with current query
   useEffect(() => {
-    setInputValue(q);
-  }, [q]);
-
-  // Debounced navigation
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      const params = new URLSearchParams(searchParams);
+    clearTimeout(debounceRef.current);
+    debounceRef.current = setTimeout(() => {
+      const params = new URLSearchParams(window.location.search);
       if (inputValue) {
         params.set("q", inputValue);
       } else {
         params.delete("q");
       }
       router.replace(`?${params.toString()}`);
-    }, 1000); // wait 300ms after typing stops
+    }, 300);
 
-    return () => clearTimeout(timer);
-  }, [inputValue, router, searchParams]);
+    return () => clearTimeout(debounceRef.current);
+  }, [inputValue, router]);
 
   return (
     <div className="relative flex items-center">
