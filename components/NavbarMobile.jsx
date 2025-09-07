@@ -2,12 +2,12 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Menu, Moon, Sun, X } from "lucide-react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import CategoryDropdown from "./CategoryDropdown";
+import SearchBar from "./SearchBar";
 
 export default function NavbarMobile({ categories }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,7 +30,9 @@ export default function NavbarMobile({ categories }) {
       {isOpen && (
         <div className="border-t md:hidden">
           <div className="container mx-auto space-y-3 px-4 py-3">
-            <Input type="text" placeholder="Search..." className="w-full" />
+            <Suspense fallback={null}>
+              <SearchBar />
+            </Suspense>
 
             <div className="flex flex-col">
               <CategoryDropdown categories={categories} />

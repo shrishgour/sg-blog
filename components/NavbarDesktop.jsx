@@ -4,7 +4,7 @@
 import { Button } from "@/components/ui/button";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import ButtonLink from "./ButtonLink";
 import CategoryDropdown from "./CategoryDropdown";
 import SearchBar from "./SearchBar";
@@ -27,7 +27,9 @@ export default function NavbarDesktop({ categories }) {
       </div>
 
       <div className="hidden items-center justify-end gap-4 md:flex">
-        <SearchBar />
+        <Suspense fallback={null}>
+          <SearchBar />
+        </Suspense>
         {mounted && (
           <Button
             variant="ghost"
