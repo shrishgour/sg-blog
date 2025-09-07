@@ -41,6 +41,12 @@ export default function NavbarMobile({ categories }) {
               >
                 MyWork
               </Link>
+              <Link
+                href="/contact"
+                className="hover:bg-accent rounded px-2 py-2"
+              >
+                Contact
+              </Link>
               <Link href="/about" className="hover:bg-accent rounded px-2 py-2">
                 About
               </Link>

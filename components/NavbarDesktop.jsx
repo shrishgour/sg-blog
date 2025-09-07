@@ -17,12 +17,13 @@ export default function NavbarDesktop({ categories }) {
 
   return (
     <>
-      <div className="hidden items-center justify-center gap-4 md:flex">
+      <div className="hidden items-center justify-center gap-3 md:flex">
         <CategoryDropdown categories={categories} />
         <ButtonLink href="https://sgportfolioweb.vercel.app/" newWindow>
           My Work
         </ButtonLink>
         <ButtonLink href="/about">About</ButtonLink>
+        <ButtonLink href="/contact">Contact</ButtonLink>
       </div>
 
       <div className="hidden items-center justify-end gap-4 md:flex">

@@ -64,7 +64,7 @@ async function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-foreground">
+                  <a href="/contact" className="hover:text-foreground">
                     Contact
                   </a>
                 </li>
