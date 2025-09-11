@@ -20,7 +20,7 @@ function CategoryDropdown({ categories }) {
             <li key={category.fields.category} className="flex justify-center">
               <DropdownMenuItem asChild>
                 <Link
-                  href={category.fields.category}
+                  href={`/${category.fields.category}`}
                   className="text-accent-foreground hover:text-foreground hover:font-semibold"
                 >
                   {category.fields.category}
