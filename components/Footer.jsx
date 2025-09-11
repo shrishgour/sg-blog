@@ -54,17 +54,26 @@ async function Footer() {
               </h3>
               <ul className="text-accent-foreground space-y-2">
                 <li>
-                  <a href="#" className="hover:text-foreground">
+                  <a
+                    href="/about"
+                    className="hover:text-foreground hover:font-semibold"
+                  >
                     About Me
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-foreground">
+                  <a
+                    href="https://sgportfolioweb.vercel.app/"
+                    className="hover:text-foreground hover:font-semibold"
+                  >
                     My Work
                   </a>
                 </li>
                 <li>
-                  <a href="/contact" className="hover:text-foreground">
+                  <a
+                    href="/contact"
+                    className="hover:text-foreground hover:font-semibold"
+                  >
                     Contact
                   </a>
                 </li>
@@ -73,23 +82,32 @@ async function Footer() {
 
             <div className="text-end">
               <h3 className="text-foreground mb-3 font-semibold uppercase">
-                Social
+                Get In Touch
               </h3>
               <ul className="text-accent-foreground space-y-2">
                 <li>
-                  <Link href="#" className="hover:text-foreground">
-                    Twitter
+                  <Link
+                    href="mailto:shrishgour.dev@gmail.com"
+                    className="hover:text-foreground hover:font-semibold"
+                  >
+                    Mail
                   </Link>
                 </li>
 
                 <li>
-                  <Link href="#" className="hover:text-foreground">
+                  <Link
+                    href="https://github.com/shrishgour"
+                    className="hover:text-foreground hover:font-semibold"
+                  >
                     GitHub
                   </Link>
                 </li>
 
                 <li>
-                  <Link href="#" className="hover:text-foreground">
+                  <Link
+                    href="https://www.linkedin.com/in/shrish-gour-6200874a/"
+                    className="hover:text-foreground hover:font-semibold"
+                  >
                     LinkedIn
                   </Link>
                 </li>
